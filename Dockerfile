@@ -8,4 +8,6 @@ FROM node:20-slim
 WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/ /usr/src/app/
 COPY . .
-CMD ["npx", "quartz", "build", "--serve"]
+#CMD ["npx", "quartz", "build", "--serve"]
+RUN chmod +x docker-entrypoint.sh
+CMD ["sh", "docker-entrypoint.sh"]
